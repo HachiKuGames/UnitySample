@@ -8,5 +8,8 @@ VRゲームでの録画画面が見やすくなるように、プレイヤーが
 ## DataImport
 CSV形式のデータシートを読み込んでScriptableObjectを生成します。
 
+## RigidbodyXRPlayer
+Rigidbodyを使用したVR用のプレイヤーです。
+
 ## 確認環境
 Unity 2023.2.20f1 で動作を確認しています。

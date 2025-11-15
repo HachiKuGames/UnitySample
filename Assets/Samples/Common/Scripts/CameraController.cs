@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 namespace HachiKuGames.Common
 {
@@ -32,32 +33,38 @@ namespace HachiKuGames.Common
         /// </summary>
         private void UpdateCameraControll()
         {
+            var keyboard = Keyboard.current;
+            if (keyboard == null)
+            {
+                return;
+            }
+
             var xAngle = 0f;
-            if (Input.GetKey(KeyCode.S))
+            if (keyboard.sKey.IsPressed())
             {
                 xAngle += KeybaordAngleSpeed;
             }
-            if (Input.GetKey(KeyCode.W))
+            if (keyboard.wKey.IsPressed())
             {
                 xAngle -= KeybaordAngleSpeed;
             }
 
             var yAngle = 0f;
-            if (Input.GetKey(KeyCode.D))
+            if (keyboard.dKey.IsPressed())
             {
                 yAngle += KeybaordAngleSpeed;
             }
-            if (Input.GetKey(KeyCode.A))
+            if (keyboard.aKey.IsPressed())
             {
                 yAngle -= KeybaordAngleSpeed;
             }
 
             var zAngle = 0f;
-            if (Input.GetKey(KeyCode.Q))
+            if (keyboard.qKey.IsPressed())
             {
                 zAngle += KeybaordAngleSpeed;
             }
-            if (Input.GetKey(KeyCode.E))
+            if (keyboard.eKey.IsPressed())
             {
                 zAngle -= KeybaordAngleSpeed;
             }
@@ -94,7 +101,7 @@ namespace HachiKuGames.Common
         /// <param name="yAngle">Y方向</param>
         private void SetCameraAngleXY(float xAngle, float yAngle)
         {
-            SetCameraAngle(xAngle, yAngle, _cameraAngle.z);
+            SetCameraAngle(xAngle, yAngle, 0);
         }
 
         /// <summary>
