@@ -72,18 +72,18 @@ namespace HachiKuGames.XR
         public void Move(Vector3 direction, float speed)
         {
             var moveVelocity = direction * speed;
-            var velocity = _rigidbody.velocity;
+            var velocity = _rigidbody.linearVelocity;
             velocity.x = moveVelocity.x;
             velocity.z = moveVelocity.z;
-            _rigidbody.velocity = velocity;
+            _rigidbody.linearVelocity = velocity;
         }
 
         public void StopMove()
         {
-            var velocity = _rigidbody.velocity;
+            var velocity = _rigidbody.linearVelocity;
             velocity.x = 0;
             velocity.z = 0;
-            _rigidbody.velocity = velocity;
+            _rigidbody.linearVelocity = velocity;
         }
 
         public void Turn(float angle)
